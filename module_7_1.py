@@ -31,9 +31,9 @@ class Shop:
             str_item = str(item)
             if str_item not in existing_products:
                 app_file.write(f'{str_item}\n')
-                app_file.close()
             if str_item in existing_products:
                 print(f"Продукт {str_item} уже есть в магазине")
+        app_file.close()
 
 # Пример использования
 if __name__ == "__main__":
