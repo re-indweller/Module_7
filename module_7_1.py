@@ -27,13 +27,11 @@ class Shop:
     def add(self, *products):
         existing_products = self.get_products()
         app_file = open(self.__file_name, 'a')
-        for item in existing_products:
-            str_item = str(item)
+        for products in existing_products:
+            str_item = str(products)
             if str_item not in existing_products:
-            # Если продукт не найден в текущих продуктах,
-            # мы добавляем его в файл и обновляем список текущих продуктов,
-            # добавив продукт и символ новой строки к нему.
-            file.close()
+                app_file.write(f'{str_item}\n')
+                app_file.close()
             if str_item in existing_products:
                 print(f"Продукт {product.name} уже есть в магазине")
 
