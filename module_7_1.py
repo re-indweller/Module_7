@@ -20,20 +20,22 @@ class Shop:
 
     def get_products(self):
         file = open(self.__file_name, 'r')
-        pprint(file.read())
+        products = file.read()
         file.close()
-        return file
+        return products
 
-    # def add(self, *products):
-    #     existing_products = self.get_products()
-    #     for product in products:
-    #         if
-    #             file = open(self.__file_name, 'r')
-    #             pprint(file.read())
-    #             file.close()
-    #         else:
-    #             print(f"Продукт {product.name} уже есть в магазине")
-
+    def add(self, *products):
+        existing_products = self.get_products()
+        app_file = open(self.__file_name, 'a')
+        for item in existing_products:
+            str_item = str(item)
+            if str_item not in existing_products:
+            # Если продукт не найден в текущих продуктах,
+            # мы добавляем его в файл и обновляем список текущих продуктов,
+            # добавив продукт и символ новой строки к нему.
+            file.close()
+            if str_item in existing_products:
+                print(f"Продукт {product.name} уже есть в магазине")
 
 # Пример использования
 if __name__ == "__main__":
