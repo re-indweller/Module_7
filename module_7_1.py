@@ -27,13 +27,13 @@ class Shop:
     def add(self, *products):
         existing_products = self.get_products()
         app_file = open(self.__file_name, 'a')
-        for products in existing_products:
-            str_item = str(products)
+        for item in products:
+            str_item = str(item)
             if str_item not in existing_products:
                 app_file.write(f'{str_item}\n')
                 app_file.close()
             if str_item in existing_products:
-                print(f"Продукт {product.name} уже есть в магазине")
+                print(f"Продукт {str_item} уже есть в магазине")
 
 # Пример использования
 if __name__ == "__main__":
