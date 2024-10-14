@@ -18,41 +18,32 @@ class Shop:
     def __init__(self):
         self.__file_name = 'products.txt'
 
-    def _read_products(self):
-        with open(self.__file_name, 'r') as file:
-            lines = file.readlines()
-        products = []
-        for line in lines:
-            product = line[:-1].split(', ')
-            products.append((product[0], float(product[1]), product[2]))
-        return products
-
     def get_products(self):
-        current_products = self._read_products()
-        result = ''
-        for product in current_products:
-            result += ', '.join([product[0], str(product[1]), product[2]]) + '\n'
-        return result[:-1]
+        file = open(self.__file_name, 'r')
+        pprint(file.read())
+        file.close()
+        return file
 
-    def add(self, *products):
-        if not products:
-            return
-        existing_products = self._read_products()
-        for product in products:
-            if product.name in map(lambda x: x[0], existing_products):
-                print(f'Продукт {product.name} уже есть в магазине')
-            else:
-                with open(self.__file_name, 'a+') as file:
-                    file.write(f"{product.name}, {product.weight}, {product.category}\n")
+    # def add(self, *products):
+    #     existing_products = self.get_products()
+    #     for product in products:
+    #         if
+    #             file = open(self.__file_name, 'r')
+    #             pprint(file.read())
+    #             file.close()
+    #         else:
+    #             print(f"Продукт {product.name} уже есть в магазине")
 
 
-s1 = Shop()
-p1 = Product('Potato', 50.5, 'Vegetables')
-p2 = Product('Spaghetti', 3.4, 'Groceries')
-p3 = Product('Potato', 5.5, 'Vegetables')
+# Пример использования
+if __name__ == "__main__":
+    s1 = Shop()
+    p1 = Product('Potato', 50.5, 'Vegetables')
+    p2 = Product('Spaghetti', 3.4, 'Groceries')
+    p3 = Product('Potato', 5.5, 'Vegetables')
 
-print(p2)  # __str__
+    print(p2)  # str
 
-s1.add(p1, p2, p3)
+    s1.add(p1, p2, p3)
 
-print(s1.get_products())
+    print(s1.get_products())
